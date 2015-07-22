@@ -16,8 +16,13 @@ job("${projectName}-01-compile"){
     steps {
         gradle('build')
 
-        downstreamParameterized("${projectName}-02-componenttest") {
-            currentBuild()
+        downstreamParameterized {
+            trigger("${projectName}-02-componenttest", '') {
+                predefinedProp('GIT_COMMIT', '$GIT_COMMIT')
+                predefinedProp('ARTIFACT_BUILD_NUMBER', '$BUILD_NUMBER')
+
+                currentBuild()
+            }
         }
     }
 }
