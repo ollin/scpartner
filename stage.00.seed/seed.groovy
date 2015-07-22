@@ -4,7 +4,7 @@ job('scpartner-jdsl-test'){
             remote {
                 github 'ollin/scpartner'
             }
-            ignoreNotifyCommit true
+            createTag false
         }
     }
     triggers {
