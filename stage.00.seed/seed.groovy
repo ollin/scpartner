@@ -58,7 +58,7 @@ nestedView("${projectName}") {
                 lastFailure()
             }
         }
-        buildPipelineView('scpartner-pl') {
+        buildPipelineView('scpartner-pipeline') {
             title('scpartner - Pipeline')
             selectedJob("${projectName}-01-compile")
             showPipelineParameters()
