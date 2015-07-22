@@ -15,9 +15,10 @@ job("${projectName}-01-compile"){
     }
     steps {
         gradle('build')
-    }
-    publishers {
-        buildPipelineTrigger("${projectName}-02-componenttest")
+
+        downstreamParameterized("${projectName}-02-componenttest") {
+            currentBuild()
+        }
     }
 }
 
