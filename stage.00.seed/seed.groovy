@@ -1,6 +1,11 @@
 job('scpartner-jdsl-test'){
     scm {
-        github('ollin/scpartner')
+        git {
+            remote {
+                github 'ollin/scpartner'
+            }
+            createTag false
+        }
     }
     triggers {
         scm('*/15 * * * *')
