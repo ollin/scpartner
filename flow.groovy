@@ -1,3 +1,4 @@
 node {
-    sh "gradlew tasks"
+    git
+    sh "./gradlew tasks"
 }
