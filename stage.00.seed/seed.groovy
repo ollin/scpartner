@@ -40,6 +40,6 @@ job("${projectName}-02-componenttest"){
 
 buildPipelineView('scpartner-pl') {
     title('scpartner - Pipeline')
-    selectedJob('scpartner-jdsl-test')
+    selectedJob("${projectName}-01-compile")
     showPipelineParameters()
 }
