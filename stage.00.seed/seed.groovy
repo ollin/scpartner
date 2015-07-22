@@ -44,8 +44,25 @@ job("${projectName}-02-componenttest"){
     }
 }
 
-buildPipelineView('scpartner-pl') {
-    title('scpartner - Pipeline')
-    selectedJob("${projectName}-01-compile")
-    showPipelineParameters()
+nestedView("${projectName}") {
+    views {
+        listView("${projectName}-overview") {
+            jobs {
+                regex("${projectName}-.*")
+            }
+            columns {
+                status()
+                weather()
+                name()
+                lastSuccess()
+                lastFailure()
+            }
+        }
+        buildPipelineView('scpartner-pl') {
+            title('scpartner - Pipeline')
+            selectedJob("${projectName}-01-compile")
+            showPipelineParameters()
+        }
+    }
 }
+
