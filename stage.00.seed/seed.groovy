@@ -14,3 +14,9 @@ job('scpartner-jdsl-test'){
         gradle('tasks')
     }
 }
+
+buildPipelineView('scpartner-pl') {
+    title('scpartner - Pipeline')
+    selectedJob('scpartner-jdsl-test')
+    showPipelineParameters()
+}
